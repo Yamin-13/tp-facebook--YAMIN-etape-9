@@ -1,0 +1,768 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* MOBILE FIRST */
+
+/* menu nav et burger--------------------------- */
+header nav a {
+    display: inline;
+    text-decoration: none;
+    /* font-size: 20px; */
+    color: white;
+    /* letter-spacing: 3px; */
+    top: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    /* padding: 10px 40px; */
+    margin: 0 2px;
+    display: none;
+}
+
+#menu>a:hover {
+    background: white;
+    color: #2719e0d6;
+    font-weight: 900;
+
+}
+
+/* bouton menu burger */
+/* #cmdMenu {
+    position: fixed;
+    top: 11px;
+    right: 18px;
+    z-index: 50;
+    padding: 2px 8px;
+    color: #2719e0d6;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+} */
+
+/* #cmdMenu:hover {
+    background: #837bedd6;
+    color: white;
+    border: solid 2px white;
+} */
+
+#menu {
+    flex-direction: column;
+}
+
+#cmdMenu {
+    display: block;
+}
+
+/* dark mode----------------- */
+#fond {
+    width: 45px;
+    height: 20px;
+    background-color: white;
+    border-radius: 20px;
+
+}
+
+#rond {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(88, 97, 94);
+    cursor: grab;
+
+}
+
+/* ----------------------------------- */
+h1 {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-top: -15px;
+
+}
+
+header {
+    background-color: #2719e0d6;
+    text-align: center;
+    /* position: relative; */
+    height: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* position: fixed; */
+
+}
+
+/* formulaire de post------------------------------------ */
+#formulaireDePost {
+    display: none;
+}
+
+/* formulaire de login -------------------------------------- */
+#loginWindow {
+    display: block;
+    border: 3px solid rgb(182, 181, 181);
+    width: 330px;
+    margin: auto;
+    height: 200px;
+    margin-top: 20px;
+    background-color: rgb(234, 241, 247);
+
+
+}
+
+#loginWindow h3 {
+    color: #1a2a83;
+    margin-left: 90px;
+    margin-top: 10px;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#cancelButton {
+    margin-left: 40px;
+    margin-top: -35px;
+}
+
+#loginWindow input {
+    border-radius: 5px;
+    /* margin-bottom: 15px; */
+    width: 195px;
+    margin-top: 15px;
+    height: 25px;
+    margin-left: 5px;
+    border: none;
+    border: 1px solid rgb(196, 195, 195);
+    background-color: rgb(234, 241, 247);
+
+}
+
+.pseudoDiv input {
+    margin-left: 100px;
+
+}
+
+#loginForm label {
+    margin-left: 10px;
+    color: #1a2a83;
+}
+
+.loginSubmit {
+    width: 100px;
+    margin-left: 40px;
+    background-color: #2719e0d6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 15px;
+    font-weight: 900;
+    margin-left: 110px;
+
+}
+
+.loginSubmit:hover {
+    background-color: #1a2a83;
+}
+
+#messageIdIncorect {
+    color: red;
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.buttonAdd {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-top: 20px;
+    height: 30px;
+    width: 90%;
+
+}
+
+/* article---------------------- */
+.janeDoe {
+    width: 337px;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid grey;
+    height: auto;
+    word-wrap: break-word;
+    /* margin-left: auto; */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+h2 {
+    margin-top: 30px;
+    font-weight: 200;
+    margin-left: 75px;
+
+}
+
+/* --croix pour supprimer l'article------------------- */
+.close {
+    height: 20px;
+    width: 20px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    /* position: absolute; */
+    /* display: inline-block; */
+    float: right;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+}
+
+.close div {
+    position: absolute;
+    background-color: black;
+
+}
+
+.horizontal {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: rotate(45deg);
+
+}
+
+.vertical {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: rotate(45deg);
+
+}
+
+/* profil login---------------------------------------- */
+/* rond du profil------------------------------- */
+#profilLogin {
+    margin: 10px;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: -22px;
+    right: 0;
+    cursor: pointer;
+
+}
+
+#profilLogin p {
+    margin-top: 0px;
+    color: white;
+    margin-left: -2px;
+}
+
+/* tete du profil----------------------------------- */
+.teteLogin {
+    position: absolute;
+    border-bottom: solid 5px #2719e0d6;
+    padding: 5px;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    /* margin-right: 4px; */
+    margin-left: 9px;
+
+    background-image: linear-gradient(to right, rgb(226, 213, 213) 50%, rgb(255, 255, 255) 50%)
+}
+
+.corpsLogin {
+    padding: 5px;
+    width: 20px;
+    height: 8px;
+    border-radius: 50% 50% 0 0;
+    margin: auto;
+    /* margin-left: 8px; */
+    margin-top: 15px;
+    /* margin-bottom: 15px; */
+    /* margin-right: 4px; */
+    background-image: linear-gradient(to right, rgb(226, 213, 213) 50%, rgb(255, 255, 255) 50%)
+}
+
+/* rond du profil------------------------------- */
+.profil {
+    margin: 10px;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #2719e0d6;
+    position: absolute;
+    margin-top: 20px;
+}
+
+/* tete du profil----------------------------------- */
+.tete {
+    position: absolute;
+    border-bottom: solid 5px #2719e0d6;
+    padding: 5px;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    /* margin-right: 4px; */
+    margin-left: 9px;
+
+    background-image: linear-gradient(to right, rgb(226, 213, 213) 50%, rgb(255, 255, 255) 50%)
+}
+
+/* corps du profil------------------------------------- */
+.corps {
+    padding: 5px;
+    width: 20px;
+    height: 8px;
+    border-radius: 50% 50% 0 0;
+    margin: auto;
+    /* margin-left: 8px; */
+    margin-top: 15px;
+    /* margin-bottom: 15px; */
+    /* margin-right: 4px; */
+    background-image: linear-gradient(to right, rgb(226, 213, 213) 50%, rgb(255, 255, 255) 50%)
+}
+
+img {
+    width: 280px;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+p {
+    margin-left: 35px;
+    margin-top: 35px;
+    text-align: justify;
+    width: 270px;
+}
+
+form {
+    width: 340px;
+    margin: auto;
+
+}
+
+form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    height: 220px;
+}
+
+form legend {
+    margin-left: 20px;
+    color: #2719e0d6;
+    font-weight: 900;
+}
+
+form input {
+    border-radius: 5px;
+    /* margin-bottom: 15px; */
+    width: 230px;
+    margin-top: 15px;
+    height: 20px;
+
+}
+#name{
+    display:none;
+}
+
+.submit {
+    display: block;
+    width: 230px;
+    padding: 10px;
+    background-color: #2719e0d6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* transition: background-color 0.3s; */
+    font-size: 15px;
+    font-weight: 900;
+    height: 37px;
+
+}
+
+
+
+/* .submit:hover {
+    background-color: #2e5830;
+} */
+.upload {
+    width: 130px;
+    height: 20px;
+    margin-right: 100px;
+}
+
+/* bouton like------------------------------------------ */
+.flowerLike {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+}
+
+
+
+/* .labelChooseFile{
+    margin-bottom: ;
+} */
+
+@media screen and (min-width: 768px) {
+    #formulaireDePost {
+        display: none;
+    }
+
+    #loginWindow {
+        display: none;
+        margin-top: 200px;
+    }
+
+    /* article de post----------------------------------------- */
+    .janeDoe {
+        width: 60%;
+        margin: 30px auto;
+        height: auto;
+        word-wrap: break-word;
+        position: relative;
+        /* overflow: hidden; */
+
+
+    }
+
+    .janeDoe p {
+        margin-bottom: 60px;
+
+    }
+
+    button {
+        margin-top: 20px;
+        height: 30px;
+        width: 30%;
+
+    }
+
+    .imgPost {
+        width: 600px;
+        height: 350px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 40px;
+        padding-bottom: 50px;
+    }
+
+    p {
+        /* position: inherit; */
+        text-align: inherit;
+        margin: auto;
+        margin-top: 30px;
+        width: 90%;
+    }
+
+    /* formulaire de post---------------------------------------------- */
+    form {
+        width: 500px;
+        margin: auto;
+    }
+
+    form fieldset {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 19px;
+        margin-top: 30px;
+        height: 220px;
+
+    }
+
+    form legend {
+        margin-left: 20px;
+        color: #2719e0d6;
+        font-weight: 900;
+
+
+    }
+
+    form input {
+        border-radius: 5px;
+        /* margin-bottom: 15px; */
+        width: 280px;
+        margin-top: 15px;
+        height: 25px;
+
+    }
+
+    .submit {
+        display: block;
+        width: 280px;
+        padding: 10px;
+        background-color: #2719e0d6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 15px;
+        font-weight: 900;
+        height: 37px;
+
+    }
+
+    .submit:hover {
+        background-color: #1a2a83;
+    }
+
+    .upload {
+        width: 240px;
+        height: 20px;
+        margin-right: 43px;
+    }
+
+    /* formilaire de login------------------------------------------------------- */
+    #loginWindow {
+        border: 5px solid grey;
+        width: 700px;
+        height: 250px;
+        background-color: rgb(234, 241, 247);
+        margin-top: 50px;
+    }
+
+    #loginWindow h3 {
+        color: #1a2a83;
+        margin-left: 280px;
+        margin-top: 10px;
+        font-weight: 900;
+        font-size: 20px;
+    }
+
+    #cancelButton {
+        margin-left: 40px;
+        margin-top: -35px;
+    }
+
+    #loginWindow input {
+        border-radius: 5px;
+        /* margin-bottom: 15px; */
+        width: 280px;
+        margin-top: 15px;
+        height: 25px;
+
+    }
+
+    /* #loginWindow input {
+        border-radius: 5px;
+        /* margin-bottom: 15px; */
+    /* width: 280px;
+        margin-top: 15px;
+        height: 25px;
+
+    } */
+
+
+
+    #loginForm label {
+        margin-left: 10px;
+
+    }
+
+    .loginSubmit {
+        /* display: block; */
+        width: 280px;
+        padding: 10px;
+        background-color: #2719e0d6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 15px;
+        font-weight: 900;
+        height: 37px;
+        margin-left: 110px;
+        margin-top: 55px;
+    }
+
+    .loginSubmit:hover {
+        background-color: #1a2a83;
+
+    }
+
+    #messageIdIncorect {
+        color: red;
+        margin-left: 230px;
+        margin-top: 13px;
+    }
+
+    /* profil personnage----------------------------------------- */
+
+    #fond {
+        width: 70px;
+        height: 30px;
+        background-color: white;
+        border-radius: 20px;
+        margin-right: 10px;
+
+    }
+
+    #rond {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgb(88, 97, 94);
+        cursor: grab;
+
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        /* text-transform: uppercase; */
+        letter-spacing: 5px;
+        color: white;
+        display: inline;
+        margin: auto;
+    }
+
+    header {
+        background-color: #2719e0d6;
+        text-align: center;
+        position: relative;
+        height: 80px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    }
+
+    header nav a {
+        display: inline;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        letter-spacing: 3px;
+        top: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font: 1em Arial, Helvetica, sans-serif;
+        padding: 10px 40px;
+        margin: 0 2px;
+
+    }
+
+    /* #cmdMenu{
+        display: none;
+    } */
+    h1 {
+        color: white;
+        display: inline;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-bottom: 11px;
+        margin-top: 5px;
+
+    }
+
+    /* menu nav et burger--------------------------- */
+    #menu>a:hover {
+        background: white;
+        color: #2719e0d6;
+        font-weight: 900;
+    }
+
+    /* bouton menu burger */
+    #cmdMenu {
+        position: fixed;
+        top: 13px;
+        right: 18px;
+        z-index: 50;
+        padding: 7px 10px;
+        color: #2719e0d6;
+        background: white;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+
+    }
+
+    #cmdMenu:hover {
+        background: #837bedd6;
+        color: white;
+        border: solid 2px white;
+    }
+
+    /* bouton like------------------------------------------ */
+    .flowerLike {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        right: 0;
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 10px;
+        margin-right: 10px;
+
+    }
+
+    /* profil login---------------------------------------- */
+    /* rond du profil------------------------------- */
+    #profilLogin {
+        margin: 10px;
+        padding: 10px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        position: absolute;
+        margin-top: 10px;
+        right: 0;
+        cursor: pointer;
+
+    }
+
+    #profilLogin p {
+        margin-top: 0px;
+        color: white;
+        margin-right: 5px;
+    }
+
+    /* tete du profil----------------------------------- */
+    .teteLogin {
+        position: absolute;
+        border-bottom: solid 5px #2719e0d6;
+        padding: 5px;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        /* margin-right: 4px; */
+        margin-left: 9px;
+
+        background-image: linear-gradient(to right, rgb(226, 213, 213) 50%, rgb(255, 255, 255) 50%)
+    }
+
+    .corpsLogin {
+        padding: 5px;
+        width: 20px;
+        height: 8px;
+        border-radius: 50% 50% 0 0;
+        margin: auto;
+        /* margin-left: 8px; */
+        margin-top: 15px;
+        /* margin-bottom: 15px; */
+        /* margin-right: 4px; */
+        background-image: linear-gradient(to right, rgb(226, 213, 213) 50%, rgb(255, 255, 255) 50%)
+    }
+
+    #name{
+        display:none;
+    }
+}

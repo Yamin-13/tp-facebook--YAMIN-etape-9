@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP-Facebook-Etape-4</title>
+    <!-- <link rel="stylesheet" href="./assset/css/style.css"> -->
+</head>
+
+<body>
+
+    <header>
+        <!-- curseur dark mod----------------------------->
+        <div class="header-content">
+            <div id="fond">
+                <div id="rond"></div>
+            </div>
+            <h1>Low Book</h1>
+        </div>
+        <!-- menu nav-------------------------------------->
+        <nav id="menu">
+            <a href="#">Nous rejoindre</a>
+            <!-- <a href="#">Recherche</a> -->
+            <a href="#">Le Blog</a>
+            <!-- <a href="#">Notre Métier</a> -->
+            <a href="#">Photos</a>
+            <a href="#">Coups de Coeur</a>
+            <a href="#">Evènements</a>
+        </nav>
+        <!-- menu burger------------------------------------->
+        <div id="cmdMenu">&#9776;</div>
+    </header>
+    <!-- formulaire de soumission de post-------------- -->
+    <article>
+        <form action="" id="postForm">
+            <fieldset>
+                <legend>POST</legend>
+                <label for=""><input id="name" type="text" name="name" value="" placeholder="Votre pseudo"></label><br>
+                <label for=""><input id="emotion" type="text" name="emotion" value=""
+                        placeholder="Quoi de neuf ?"></label>
+                <input type="file" id="fileInput" name="fileInput" class="upload">
+                <button class="submit" type="submit">Valider</button>
+            </fieldset>
+        </form>
+    </article>
+    <!-- conteneur-------------------------------------------->
+
+    <article id="postContainer">
+        <!-- ça stock ici pour afficher les articles -->
+    </article>
+    <script>
+        let articles = [];
+        document.querySelector('#postForm').addEventListener('submit', function (event) {
+            event.preventDefault(); //ca ne renvoie pas vers une autre page
+
+            // ca recupere les value
+            let author = document.getElementById('name').value.trim(); //trim() enlève les espaces saisie
+            let emotion = document.getElementById('emotion').value.trim();
+            let url = document.getElementById('fileInput').value.trim();
+
+            // conditions pour que le formulaire n'affiche rien si les champs sont tous vide
+            if (author === '' && emotion === '' && url === '') {
+                return; //ca retourne rien si c'est vide
+            }
+
+            let post = {
+                author: author,
+                emotion: emotion,
+                url: url
+            };
+            // push le post au tableau
+            articles.push(post);
+
+            // pour afficher les articles
+            selectArticles();
+        });
+
+        function selectArticles() {
+            // ça sélectionne le conteneur pour les articles
+            let postContainer = document.getElementById('postContainer');
+
+            for (let post of articles) {
+                // 1ere) la chaine de caractere html est d'abord stocké ici
+                let template = `
+                    <article class="janeDoe">
+                        <div class="close">
+                            <div class="horizontal"></div>
+                            <div class="vertical"></div>
+                        </div>
+                        <div class="profil">
+                            <div class="tete"></div>
+                            <div class="corps">
+                                </div>
+                                </div>
+                                <h2>Posté par: ${post.author ? post.author : 'Anonyme'}</h2>
+                                <p>${post.emotion}</p>
+                        <div class="like">
+                            <img class="flowerLike" src="./assset/img/variante-de-fleur.png">
+                        </div>
+                    </article>
+                `;
+
+                // 2eme) ca convertis ici la chaîne de caractères en éléments HTML reels que le navigateur peux lire
+                let articleElement = document.createElement('div'); //3eme) div qui sert de container pour l'html
+                articleElement.innerHTML = template.trim(); //4eme) la propriété innerHTML sert à convertir en html reel 
+                let article = articleElement.firstChild; //5eme) je recupere le premier élément enfant (article) de la div conteneur 
+
+
+                // c'est une fonction pour supprimer les articles
+                let closeDiv = article.querySelector('.close');
+                closeDiv.addEventListener('click', function () {
+                    article.remove();
+                });
+
+                // ca récupère le premier article qui existe dans le conteneur des articles
+                let firstArticle = postContainer.firstChild;
+
+                // ca ajoute un nouvel article à chaque fois, postContainer est le parent et article est l'enfant qui existe déjkà
+                // ca insère le nouvel article avant le premier article 
+                postContainer.insertBefore(article, firstArticle);
+
+
+            }
+            // stop la boucle à la fin
+            articles = [];
+
+            // Réinitialise le formulaire
+            document.getElementById('name').value = "";
+            document.getElementById('emotion').value = "";
+
+            // bouton like--------------------------------------------------------------------
+            //  variable qui stocke l'état actuel de l'image si elle est true alors la'autre sera false
+            let isFlowerImage = true;
+
+            // Sélection de l'image qui sera modifier
+            let imageLike = document.querySelector('.flowerLike');
+
+            // écouteur d'événements au clic sur l'image
+            imageLike.addEventListener("click", function () {
+                //  ca inverse l'état de l'image avec l'opérateur de négation logique "!"
+                isFlowerImage = !isFlowerImage;
+
+                // Mise à jour de l'image en fonction de l'état actuel
+                if (isFlowerImage) {
+                    imageLike.src = "./assset/img/variante-de-fleur.png";
+                } else {
+                    imageLike.src = "./assset/img/petales-de-fleur.png";
+                }
+            });
+        }
+    </script>
+    </div>
+    <!-- <script src="./theme.js"></script> -->
+    <script src="./scriptMenuBurger.js"></script>
+</body>
+
+</html>

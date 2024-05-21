@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8"> <!-- Définit l'encodage des caractères -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rend la page responsive -->
+    <title>TP-Facebook-Etape-4</title> <!-- Titre de la page -->
+    <link rel="stylesheet" href="./assset/css/style.css"> <!-- Lien vers le fichier CSS -->
+</head>
+
+<body>
+
+    <header>
+        <!-- curseur dark mod -->
+        <div class="header-content">
+            <div id="fond">
+                <div id="rond"></div>
+            </div>
+            <!-- logo stylisé de login -->
+            <div id="profilLogin">
+                <div class="teteLogin"></div>
+                <div class="corps"></div>
+                <p id="loginText">Login</p>
+            </div>
+            <h1>Low Book</h1>
+        </div>
+        <!-- menu nav -->
+        <nav id="menu">
+            <a href="#">Nous rejoindre</a>
+            <a href="#">Le Blog</a>
+            <a href="#">Photos</a>
+            <a href="#">Coups de Coeur</a>
+            <a href="#">Evènements</a>
+        </nav>
+    </header>
+    <!-- formulaire de soumission de post -->
+    <article id="formulaireDePost" style="display: none;">
+        <form action="" id="postForm">
+            <fieldset>
+                <legend>POST</legend>
+                <label for=""><input id="name" type="text" name="name" value="" placeholder="Votre pseudo"></label><br>
+                <label for=""><input id="emotion" type="text" name="emotion" value="" placeholder="Quoi de neuf ?"></label>
+                <input type="file" id="fileInput" name="fileInput" class="upload">
+                <button class="submit" type="submit">Valider</button>
+            </fieldset>
+        </form>
+    </article>
+    <span id="villeSpan"></span> <!-- ca affiche la ville obtenue par géolocalisation -->
+    <!-- formulaire de login -->
+    <div id="loginWindow">
+        <h3>Authentification</h3>
+        <div class="close" id="cancelButton">
+            <div class="horizontal"></div>
+            <div class="vertical"></div>
+        </div>
+        <form action="" id="loginForm" onsubmit="return login()">
+            <div class="pseudoDiv">
+                <label class="pseudo">Pseudo :<input id="pseudo" type="text" name="pseudo" value=""></label>
+                <br>
+                <label class="password" for="">Mot de passe :<input id="password" type="password" name="password" value=""></label>
+            </div>
+            <button class="loginSubmit" type="submit">Connexion</button>
+        </form>
+        <div id="messageIdIncorect"></div>
+    </div>
+
+    <!-- conteneurs -->
+    <article id="postContainer">
+        <!-- Contient les articles -->
+    </article>
+    <article id="htmlArticlesContainer"></article>
+    
+    <!-- Scripts JavaScript -->
+    <script src="./script.js"></script>
+    <script src="./theme.js"></script>
+    <script src="./objetHtml.js"></script>
+    <script src="./login.js"></script>
+    <script src="./geolocation.js"></script>
+</body>
+
+</html>

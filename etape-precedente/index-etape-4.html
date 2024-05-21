@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP-Facebook-Etape-4</title>
+    <!-- <link rel="stylesheet" href="./assset/css/style.css"> -->
+</head>
+<!-- liens image pour le prompt : ./assset/css/img/maldives3.webp
+                                : ./assset/css/img/field-flower.jpg  -->
+
+<body>
+
+    <header>
+        <!-- curseur dark mod----------------------------->
+        <div class="header-content">
+            <div id="fond">
+                <div id="rond"></div>
+            </div>
+            <h1>Low Book</h1>
+        </div>
+        <nav id="menu">
+            <a href="#">Nous rejoindre</a>
+            <a href="#">Recherche</a>
+            <a href="#">Le Blog</a>
+            <a href="#">Notre Métier</a>
+            <a href="#">Photos</a>
+            <a href="#">Coups de Coeur</a>
+            <a href="#">Evènements</a>
+        </nav>
+        <div id="cmdMenu">&#9776;</div>
+    </header>
+    <!-- formulaire de soumission de post-------------- -->
+    <article>
+        <form action="" id="postForm">
+            <fieldset>
+                <legend>POST</legend>
+                <label for=""><input id="name" type="text" name="name" value="" placeholder="Votre pseudo"></label><br>
+                <label for=""><input id="emotion" type="text" name="emotion" value=""
+                        placeholder="Quoi de neuf ?"></label>
+                <input type="file" id="fileInput" name="fileInput" class="upload">
+                <!-- <label class="labelChooseFile" for="fileInput">Choisir un fichier :</label> -->
+                <button class="submit" type="submit">Valider</button>
+            </fieldset>
+        </form>
+    </article>
+    <article id="postContainer">
+        <!-- ça stock ici pour afficher les articles -->
+    </article>
+    <script>
+        // Etape 4----------------------------------------------------------------------------------------
+        let articles = [];
+        document.querySelector('#postForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // ca recupere les value
+            let author = document.getElementById('name').value.trim(); //trim() enlève les espaces saisie
+            let emotion = document.getElementById('emotion').value.trim();
+            let url = document.getElementById('fileInput').value.trim();
+            
+
+            if (author === '' && emotion === '' && url === '') {
+                return; //ca retourne rien si c'est vide
+            }
+
+            let post = {
+                author: author,
+                emotion: emotion,
+                url: url
+            };
+            // push le post au tableau
+            articles.push(post);
+
+            // pour afficher les articles
+            selectArticles();
+        });
+
+        function selectArticles() {
+            // ça sélectionne le conteneur pour les articles
+            let postContainer = document.getElementById('postContainer');
+
+            console.log(articles);
+            for (let post of articles) {
+                let articleElement = document.createElement("article");
+                articleElement.className = "janeDoe";
+
+                let closeDiv = document.createElement("div");
+                closeDiv.addEventListener('click', function (supprimer) {
+                    supprimer.target.parentNode.parentNode.remove();
+                });
+
+                closeDiv.className = "close";
+
+                let horizontalDiv = document.createElement("div");
+                horizontalDiv.className = "horizontal";
+
+                let verticalDiv = document.createElement("div");
+                verticalDiv.className = "vertical";
+
+                closeDiv.appendChild(horizontalDiv);
+                closeDiv.appendChild(verticalDiv);
+
+                let profilDiv = document.createElement("div");
+                profilDiv.className = "profil";
+
+                let teteDiv = document.createElement("div");
+                teteDiv.className = "tete";
+
+                let corpsDiv = document.createElement("div");
+                corpsDiv.className = "corps";
+
+                profilDiv.appendChild(teteDiv);
+                profilDiv.appendChild(corpsDiv);
+
+                let h2Element = document.createElement("h2");
+                if (post.author) {
+                    console.log("je suis dans le if author");
+                    h2Element.textContent = "Posté par: " + post.author;
+                }
+                else {
+                    h2Element.textContent = "Posté par: Anonyme";
+                }
+
+                let pElement = document.createElement("p");
+                pElement.textContent = post.emotion;
+
+                let likeDiv = document.createElement("div");
+                likeDiv.className = "like";
+
+                let imgLikeElement = document.createElement("img");
+                imgLikeElement.className = "flowerLike";
+                imgLikeElement.src = "./assset/css/img/variante-de-fleur.png";
+
+                likeDiv.appendChild(imgLikeElement);
+
+
+
+
+                // if (i.emotion) {
+                //     console.log("je suis dans le if emotion");
+                // }
+
+
+                // let imgElement = document.createElement("img");
+                // imgElement.src = post.url;
+
+                articleElement.appendChild(closeDiv);
+                articleElement.appendChild(profilDiv);
+                articleElement.appendChild(h2Element);
+                articleElement.appendChild(pElement);
+                articleElement.appendChild(likeDiv);
+                // articleElement.appendChild(imgElement);
+
+                postContainer.appendChild(articleElement);
+
+                // bouton Like-----------------
+                /* likeDiv.addEventListener("click", function () {
+                    console.log("coucou");
+                    if(imgLikeElement.src === "./assset/css/img/variante-de-fleur.png") {
+                        console.log("je suis dans le if de image");
+                        imgLikeElement.src = "assset/css/img/petales-de-fleur.png";
+
+                    }
+                    else if(imgLikeElement.src === "./assset/css/img/petales-de-fleur.png") {
+                        console.log("je suis dans le else if de image");
+                        imgLikeElement.src = "assset/css/img/variante-de-fleur.png";                   
+                    }
+                }); */
+                
+
+                // -------------------------------------------------------                
+            }
+            
+            articles = [];
+            document.getElementById('name').value = "";
+            document.getElementById('emotion').value = "";
+
+            // author.value = "";
+
+
+        };
+
+
+    </script>
+    </div>
+    <!-- <script src="./script.js"></script> -->
+    <script src="./scriptMenuBurger.js"></script>
+</body>
+
+
+</html>
