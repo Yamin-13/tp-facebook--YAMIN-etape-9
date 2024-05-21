@@ -18,11 +18,11 @@ function login() {
     }
 
     loggedInUser = pseudo; // Stocke le pseudo de l'utilisateur connecté
-    localStorage.setItem('loggedInUser', loggedInUser); // Sauvegarde le pseudo dans le localStorage
+    localStorage.setItem('loggedInUser', loggedInUser); // sauvegarde le pseudo dans le localStorage
 
     showArticleForm(); // affiche le formulaire de soumission d'article
-    loginWindow.style.display = "none"; // Masque la fenêtre de login
-    document.getElementById("messageIdIncorect").innerText = ""; // Réinitialise le message d'erreur
+    loginWindow.style.display = "none"; //ca masque la fenêtre de login
+    document.getElementById("messageIdIncorect").innerText = ""; // réinitialise le message d'erreur
     loadArticles(); // fonction qui charge les articles
     return false; //  empêche la soumission du formulaire
 }
