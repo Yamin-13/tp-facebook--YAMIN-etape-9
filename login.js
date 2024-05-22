@@ -6,6 +6,7 @@ let loginText = document.getElementById("loginText"); // texte du login/logout
 let loginWindow = document.querySelector("#loginWindow"); // fenêtre de login
 let profilLogin = document.querySelector("#profilLogin"); // élément de profil
 let userCity = ""; // variable pour stocké la ville
+let myFriends = document.querySelector(".myfriends");
 
 function login() {
     let pseudo = document.getElementById("pseudo").value; // ca récupère le pseudo
@@ -27,6 +28,8 @@ function login() {
     return false; //  empêche la soumission du formulaire
 }
 
+
+
 function logout() {
     isLogged = false; // met la variable de connexion à false
     localStorage.removeItem("isLogged"); // supprim la variable de connexion du localStorage
@@ -37,6 +40,7 @@ function logout() {
     loginWindow.style.display = "none"; // masque la fenêtre de login
     hideCloseButtons(); // masque les bouton de fermeture
     selectArticles(); // recharge les article
+    document.querySelector('.myfriends').style.display = 'none';
 }
 
 function showArticleForm() {
@@ -47,6 +51,8 @@ function showArticleForm() {
     localStorage.setItem("isLogged", "true"); // Sauvegarde la variable de connexion dans le localStorage
     localStorage.setItem("loggedInUser", document.getElementById('pseudo').value); // Sauvegarde le pseudo dans le localStorage
     showCloseButtons(); // Affiche les boutons de fermeture
+    document.querySelector('.myfriends').style.display = 'flex'; // ca affiche le conteneur myfriends
+
 }
 
 // écouteur d'évenements au click sur le profil

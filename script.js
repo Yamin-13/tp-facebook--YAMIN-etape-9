@@ -1,20 +1,21 @@
 document.querySelector('#postForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Empêche la soumission par défaut du formulaire
+    event.preventDefault(); // ca empêche la soumission par défaut du formulaire
 
     // Récupère les valeurs du formulaire
-    let author = localStorage.getItem('loggedInUser') || 'Anonyme'; // Utilise le pseudo stocké ou 'Anonyme'
+    let author = localStorage.getItem('loggedInUser') || 'Anonyme'; // ca utilise le pseudo stocké ou 'Anonyme'
     let emotion = document.getElementById('emotion').value.trim();
     let fileInput = document.getElementById('fileInput');
-    let city = localStorage.getItem('userCity') || 'Ville inconnue'; // Récupère la ville de localStorage ou 'Ville inconnue'
+    let city = localStorage.getItem('userCity') || 'Ville inconnue'; // ca récupère la ville de localStorage ou 'Ville inconnue'
 
+    // objet FileReader pour uploadé des images en utilisant le formulaire de post
     let imgURL = ''; // Initialiser une variable pour stocker l'URL de l'image
-    if (fileInput.files.length > 0) { // Vérifie si un fichier a été sélectionné
+    if (fileInput.files.length > 0) { // vérifie si un fichier a été sélectionné
         let file = fileInput.files[0]; // Récupère le fichier
         let reader = new FileReader(); // Crée un lecteur de fichier
         reader.onload = function (e) {
             imgURL = e.target.result; // stocke l'URL de l'image
 
-            // Crée un nouveau post avec le pseudo de l'utilisateur connecté et la ville
+            // crée un nouveau post avec le pseudo de l'utilisateur connecté et la ville
             let post = {
                 author: `${author} à ${city}`, // Ajoute la ville au message
                 emotion: emotion,
@@ -24,7 +25,7 @@ document.querySelector('#postForm').addEventListener('submit', function (event) 
             // Ajoute le nouveau post au tableau des articles
             articles.push(post);
             saveArticles(); // Sauvegarde les articles
-            selectArticles(); // Met à jour l'affichage des articles
+            selectArticles(); 
 
             // Réinitialise le formulaire
             document.getElementById('name').value = '';
@@ -109,24 +110,24 @@ function selectArticles() {
 }
 
 function loadArticles() {
-    let storedArticles = localStorage.getItem('articles'); // Récupère les articles du localStorage
+    let storedArticles = localStorage.getItem('articles'); // récupère les articles du localStorage
     if (storedArticles) {
-        articles = JSON.parse(storedArticles); // Charge les articles depuis le localStorage
+        articles = JSON.parse(storedArticles); // charge les articles depuis le localStorage
     }
-    selectArticles(); // Sélectionne et affiche les articles
+    selectArticles(); // sélectione et affiche les articles
 }
 
 function saveArticles() {
-    localStorage.setItem('articles', JSON.stringify(articles)); // Sauvegarde les articles dans le localStorage
+    localStorage.setItem('articles', JSON.stringify(articles)); // sauvegarde les articles dans le localStorage
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem("isLogged") === "true") {
-        showArticleForm(); // Affiche le formulaire de soumission d'article
-        loadArticles(); // Charge les articles
+        showArticleForm(); // appel de la fonction qui affiche le formulaire de soumission d'article
+        loadArticles(); // appel de la fonction qui charge les articles
     } else {
-        isLogged = false; // S'assure que l'utilisateur est déconnecté
-        showDefaultPosts(); // Affiche les posts par défaut
-        loadArticles(); // Charge les articles
+        isLogged = false; // s'assure que l'utilisateur est déconnecté
+        showDefaultPosts(); 
+        loadArticles(); 
     }
 });

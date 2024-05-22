@@ -2,14 +2,13 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8"> <!-- Définit l'encodage des caractères -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rend la page responsive -->
-    <title>TP-Facebook-Etape-4</title> <!-- Titre de la page -->
-    <link rel="stylesheet" href="./assset/css/style.css"> <!-- Lien vers le fichier CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP-facebook-yamin</title>
+    <link rel="stylesheet" href="./assset/css/style.css">
 </head>
 
 <body>
-
     <header>
         <!-- curseur dark mod -->
         <div class="header-content">
@@ -33,35 +32,60 @@
             <a href="#">Evènements</a>
         </nav>
     </header>
-    <!-- formulaire de soumission de post -->
-    <article id="formulaireDePost" style="display: none;">
-        <form action="" id="postForm">
-            <fieldset>
-                <legend>POST</legend>
-                <label for=""><input id="name" type="text" name="name" value="" placeholder="Votre pseudo"></label><br>
-                <label for=""><input id="emotion" type="text" name="emotion" value="" placeholder="Quoi de neuf ?"></label>
-                <input type="file" id="fileInput" name="fileInput" class="upload">
-                <button class="submit" type="submit">Valider</button>
-            </fieldset>
-        </form>
-    </article>
-    <span id="villeSpan"></span> <!-- ca affiche la ville obtenue par géolocalisation -->
-    <!-- formulaire de login -->
-    <div id="loginWindow">
-        <h3>Authentification</h3>
-        <div class="close" id="cancelButton">
-            <div class="horizontal"></div>
-            <div class="vertical"></div>
+
+    <div class="main-container">
+        
+        <!-- Conteneur pour les informations sur les plantes -->
+        <div id="imageContainer" class="image-container">
+            <h4><span>Partager</span> vos meilleurs <span>réalisations</span></h4>
+            <p id="imageInfo" class="image-info"></p>
+            <img id="imageElement" alt="Image" class="image-element">
         </div>
-        <form action="" id="loginForm" onsubmit="return login()">
-            <div class="pseudoDiv">
-                <label class="pseudo">Pseudo :<input id="pseudo" type="text" name="pseudo" value=""></label>
-                <br>
-                <label class="password" for="">Mot de passe :<input id="password" type="password" name="password" value=""></label>
+        
+        <!-- Conteneur friends -->
+        <div class="myfriends">
+            <!-- <div class="fiend">
+                <div class="tete"></div>
+                <div class="corps"></div>
+            </div> -->
+        </div>
+
+        <div class="form-container">
+            <!-- formulaire de soumission de post -->
+            <article id="formulaireDePost" style="display: none;">
+                <form action="" id="postForm">
+                    <fieldset>
+                        <legend>POST</legend>
+                        <label for=""><input id="name" type="text" name="name" value=""
+                                placeholder="Votre pseudo"></label><br>
+                        <label for=""><input id="emotion" type="text" name="emotion" value=""
+                                placeholder="Quoi de neuf ?"></label>
+                        <input type="file" id="fileInput" name="fileInput" class="upload">
+                        <button class="submit" type="submit">Valider</button>
+                    </fieldset>
+                </form>
+            </article>
+            <span id="villeSpan"></span> <!-- ca affiche la ville obtenue par géolocalisation -->
+            <!-- formulaire de login -->
+            <div id="loginWindow">
+                <h3>Authentification</h3>
+                <div class="close" id="cancelButton">
+                    <div class="horizontal"></div>
+                    <div class="vertical"></div>
+                </div>
+                <form action="" id="loginForm" onsubmit="return login()">
+                    <div class="pseudoDiv">
+                        <label class="pseudo">Pseudo :<input id="pseudo" type="text" name="pseudo" value=""></label>
+                        <br>
+                        <label class="password" for="">Mot de passe :<input id="password" type="password"
+                                name="password" value=""></label>
+                    </div>
+                    <p class="identifiantInfo">Pseudo = moi / Mot De Passe = moi </p>
+                    <button class="loginSubmit" type="submit">Connexion</button>
+                </form>
+                <div id="messageIdIncorect"></div>
             </div>
-            <button class="loginSubmit" type="submit">Connexion</button>
-        </form>
-        <div id="messageIdIncorect"></div>
+        </div>
     </div>
 
     <!-- conteneurs -->
@@ -69,13 +93,25 @@
         <!-- Contient les articles -->
     </article>
     <article id="htmlArticlesContainer"></article>
-    
+
+    <footer class="footer">
+        <div class="footerText">
+            <p>Copyright &copy; 2024 | No Right Reserved.</p>
+        </div>
+        <div class="footerIconTop">
+            <a href="#menu"><img class="arow" src="./assset/img/flecheHaut.png" alt=""></a>
+        </div>
+    </footer>
+
     <!-- Scripts JavaScript -->
     <script src="./script.js"></script>
     <script src="./theme.js"></script>
-    <script src="./objetHtml.js"></script>
+    <script src="./objet.js"></script>
     <script src="./login.js"></script>
     <script src="./geolocation.js"></script>
+    <script src="./apiUnsplash.js"></script>
+    <script src="./jsonPlaceholder.js"></script>
 </body>
 
 </html>
+
